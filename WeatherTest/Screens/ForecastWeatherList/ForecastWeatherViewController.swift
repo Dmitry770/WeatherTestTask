@@ -18,6 +18,7 @@ class ForecastWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        readCoreData()
+        //xxx
         initTableView()
         self.viewModel = WeatherListViewModel(delegate: self)
         self.viewModel?.getForecastList()
