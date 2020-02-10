@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class ForecastWeatherViewController: UIViewController {
 
@@ -17,8 +16,6 @@ class ForecastWeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        readCoreData()
-        //xxx
         initTableView()
         self.viewModel = WeatherListViewModel(delegate: self)
         self.viewModel?.getForecastList()
@@ -44,27 +41,15 @@ extension ForecastWeatherViewController: UITableViewDelegate, UITableViewDataSou
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         
          let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell", for: indexPath) as! ForecastWeatherTableViewCell
-        
-        if let item  =  viewModel?.forecastList?.list![indexPath.row] {
-        
-        cell.descriptionForecast.text = item.weather?.first?.description
-            
-            let df = DateFormatter()
-//            let date = Date(string: item.dt_txt)
-            
-//            cell.dateForecast.text = df.string(date: item///)
-            cell.dateForecast.text = item.dt_txt
-            
+         if let item  =  viewModel?.forecastList?.list![indexPath.row] {
+           cell.descriptionForecast.text = item.weather?.first?.description
+           cell.dateForecast.text = item.dt_txt
             if let temp =  item.main?.temp {
                 cell.tempForecast.text = String(format:"%.1lf C",temp)
             }
-        cell.iconForecast.image = UIImage(named: (viewModel?.forecastList?.list![indexPath.row].weather?.first?.icon)!)
-        
+           cell.iconForecast.image = UIImage(named: (viewModel?.forecastList?.list![indexPath.row].weather?.first?.icon)!)
         }
-
-         
          return cell
      }
     

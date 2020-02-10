@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 protocol WeatherListViewModelDelegate: class {
     func reloadData()
@@ -34,7 +33,6 @@ class WeatherListViewModel {
             } else if let weatherList = weatherList {
                 self.weatherList = weatherList
                 self.delegate?.reloadData()
-                print(self.weatherList)
             }
         }
     }
@@ -46,35 +44,17 @@ class WeatherListViewModel {
         } else if let forecastList = forecastList {
             self.forecastList = forecastList
             self.delegate?.reloadData()
-           print("load =  \(self.forecastList?.list?.count)")
            }
         }
     }
     
     func numberOfRowsInSection() -> Int {
-         print("num =  \(self.forecastList?.list?.count)")
         return forecastList?.list?.count ?? 0
        }
        
     func cellHight()->CGFloat {
            return 104
        }
-    
-//    func saveForecastWeatherData(w:WeatherInfo) {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let entity = NSEntityDescription.entity(forEntityName: "WeatherInfo", in: context)
-//        let weatherInfo = NSManagedObject(entity: entity!, insertInto: context)
-//        weatherInfo.setValue(forecastList.first?.list?.first?.main?.temp, forKey: "temper")
-//        weatherInfo.setValue(forecastList.first?.list?.first?.dt_txt, forKey: "date")
-//        weatherInfo.setValue(forecastList.first?.list?.first?.weather?.first?.description, forKey: "discr")
-//        weatherInfo.setValue(forecastList.first?.list?.first?.weather?.first?.icon, forKey: "icon")
-//        do {
-//            try context.save()
-//        } catch {
-//            self.delegate?.showError(error: "Saving error" )
-//        }
-//    }
     
     
 }

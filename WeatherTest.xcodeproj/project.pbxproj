@@ -90,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E20098C623F08D4000145AB5 /* WatherViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E20191B623E603640055ED89 /* WeatherListViewModel.swift */,
+			);
+			path = WatherViewModel;
+			sourceTree = "<group>";
+		};
 		E20191B223E600BC0055ED89 /* WeatherList */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +176,7 @@
 		E29968E723E35F560028CA8E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E20191B623E603640055ED89 /* WeatherListViewModel.swift */,
+				E20098C623F08D4000145AB5 /* WatherViewModel */,
 				E20191B223E600BC0055ED89 /* WeatherList */,
 				E20191B323E600C80055ED89 /* ForecastWeatherList */,
 				E29968D423E35F0B0028CA8E /* Main.storyboard */,
